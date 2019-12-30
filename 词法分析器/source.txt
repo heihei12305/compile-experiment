@@ -1,0 +1,6 @@
+program lexical
+begin
+ if a < b
+  then m := a + b;
+ else m := a - b;
+end #

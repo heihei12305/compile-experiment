@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>词法分析器</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title" style="color: #00d1b2;">
+        请输入表达式
+      </h1>
+      <input class="input" type="text" placeholder="Text input">
+      
+      <br/>
+
+      <button class="button is-success is-fullwidth" style="margin-top: 10px;" onclick="func_up_down()">提交</button>
+
+      <br/>
+
+      <h2 class="title" style="color: #FFD256">
+        自上而下分析过程：
+      </h2>
+      <table  id='up-down' class="table is-hoverable is-fullwidth" style="margin:0 auto">
+        <thead>
+          <tr>
+            <th>步骤</th>
+            <th>分析栈</th>
+            <th>输入串</th>
+          </tr>
+        </thead>
+        <tbody >
+          
+        </tbody>
+      </table>
+
+      <hr/>
+      <hr/>
+      <hr/>
+      <h1 class="title" style="color: #00d1b2;">
+        请输入表达式
+      </h1>
+      <input class="input" type="text" placeholder="Text input">
+      
+      <br/>
+
+      <button class="button is-success is-fullwidth" style="margin-top: 10px;" onclick="func_down_up()">提交</button>
+
+      <br/>
+      
+      <br/>
+      <h2 class="title" style="color: #ED6F5A">
+        自下而上分析过程：
+      </h2>
+      <table id='down-up' class="table is-hoverable is-fullwidth" style="margin:0 auto">
+        <thead>
+          <tr>
+              <th>步骤</th>
+              <th>分析栈</th>
+              <th>输入串</th>
+          </tr>
+        </thead>
+        <tbody >
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+  <script>
+  window.devtoolsFormatters = [{
+    header: function(obj){
+      if (!obj.__clown) {
+        return null;
+      }
+      delete obj.__clown;
+      const style = `
+        color: #F96854;
+        border: dotted 2px gray;
+        border-radius: 4px;
+        padding: 5px;
+      `
+      const content = `🤡语义分析结果： ${JSON.stringify(obj, null, 4)}`;
+
+      try {
+        return ['div', {style}, content]
+      } catch (err) { // for circular structures
+        return null;  // use the default formatter
+      }
+    },
+    hasBody: function(){
+        return false;
+    }
+  }]
+
+  console.clown = function (obj) {
+    console.log({...obj, __clown: true});
+  }
+
+  </script>
+  <script src="./index.js" type="module"></script>
+  <script>
+   
+    // setInterval(func,1000*10);
+    // let oldVal = '';
+    function func_up_down(){
+      let a = document.getElementsByClassName('input')[0];
+      window.analytics_up_down(a.value+'#')
+        // oldVal = a.value
+    }
+    function func_down_up(){
+      let a = document.getElementsByClassName('input')[1];
+      window.analytics_down_up(a.value+'#')
+    }
+    
+  </script>
+  </body>
+</html>
