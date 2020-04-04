@@ -50,8 +50,10 @@ fs.readFile('词法分析器/source.txt', function (err, data) {
   * 自下而上语法分析
 
   采用html简单网页形式进行互动。
+  
+  网页链接：[https://heihei12305.github.io/compile-experiment/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/index.html](https://heihei12305.github.io/compile-experiment/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/index.html)
 
 
 * #### 语义分析
 
-耦合在自下而上语法分析中，在console.log中显示，值得一一提的是本次还把console.log定制了一下呢！
+耦合在自下而上语法分析中，在console.log中显示，值得一一提的是本次还把console.log定制了一下呢！可打开上述网站，使用自下而上语法分析，打开console查看
